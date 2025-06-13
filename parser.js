@@ -39,6 +39,7 @@ const sampleData = [
 // Insert sample data by creating inputFile.txt if not exist
 function generateSampleInput() {
   fs.writeFileSync(inputFile, sampleData.join('\n'));
+  console.log(sampleData.join('\n'))
 }
 
 async function fileParser() {
@@ -56,14 +57,11 @@ async function fileParser() {
     crlfDelay: Infinity
   });
 
-  const controller = new AbortController();
-  const { signal } = controller;
 //   console.log(rl)
 
 
   const timer = setTimeout(() => {
     isCancelled = true;
-    controller.abort();
     logError('Parsing process has been  cancelled due to timeout of 10 seconds');
     rl.close();
   }, 10000);
