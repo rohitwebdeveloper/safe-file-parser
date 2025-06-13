@@ -1,7 +1,17 @@
- At Line Number Line 1: missingItem field 'timestamp'
- At Line Number Line 2: missingItem field 'name'
- At Line Number Line 3: missingItem field 'name'
- At Line Number Line 6: missingItem field 'name'
- At Line Number 9: Invalid Json - Expected property name or '}' in JSON at position 1
- At Line Number 12: Invalid Json - Expected property name or '}' in JSON at position 1
- At Line Number 16: Invalid Json - Expected property name or '}' in JSON at position 1
+Line 1: Missing field 'timestamp'
+Line 2: Invalid JSON - Unexpected end of JSON input 
+Line 3: Invalid JSON - Expected ':' after property name in JSON at position 7 
+Line 4: Invalid JSON - Unexpected end of JSON input 
+Line 5: Missing field 'name'
+Line 6: Invalid JSON - Unexpected end of JSON input 
+Line 8: Invalid JSON - Unexpected end of JSON input 
+Line 10: Invalid JSON - Unexpected end of JSON input 
+Line 11: Missing field 'name'
+Line 12: Invalid JSON - Unexpected end of JSON input 
+Line 14: Invalid JSON - Unexpected end of JSON input 
+Line 16: Invalid JSON - Unexpected end of JSON input 
+Line 18: Invalid JSON - Unexpected end of JSON input 
+Line 19: Invalid JSON - Unexpected token ',', ...":10,"dob:","timestam"... is not valid JSON 
+Line 20: Invalid JSON - Unexpected end of JSON input 
+Line 22: Invalid JSON - Unexpected end of JSON input 
+Line 24: Invalid JSON - Unexpected end of JSON input 

@@ -20,26 +20,22 @@ function logError(errMsg) {
 
 const sampleData = [
     '{"id":1,"name":"Rohit"}',
-    '{"id":2,"timestamp":"2025-06-04"}', 
+    '{"name", "age", "timestamp":"2025-06-04"}', 
     '{"id":3,"timestamp":"2025-06-04"}',
     '{"id":4,"name":"Rohit","timestamp":"2025-06-01"}',
     '{"id":5,"name":"Aman","timestamp":"2025-06-02"}',
     '{"id":6,"timestamp":"2025-06-04"}',
     '{"id":7,"name":"Harshjeet","timestamp":"2025-06-02"}',
     '{"id":8,"name":"Harshjeet","timestamp":"2025-06-02"}',
-    '{Incorect line',
     '{"id":9,"name":"Harshjeet","timestamp":"2025-06-02"}',
-    '{"id":10,"name":"Harshjeet","timestamp":"2025-06-02"}',
-    '{this is a wrong line',
+    '{"id":10,"dob:","timestamp":"2025-06-02"}',
     '{"id":11,"name":"Arvind","timestamp":"2025-06-03"}',
     '{"id":12,"name":"Arvind","timestamp":"2025-06-03"}',
     '{"id":13,"name":"Arvind","timestamp":"2025-06-03"}',
-    '{this is a wrong line',
 ];
 // Insert sample data by creating inputFile.txt if not exist
 function generateSampleInput() {
-  fs.writeFileSync(inputFile, sampleData.join('\n'));
-  console.log(sampleData.join('\n'))
+  fs.writeFileSync(inputFile, sampleData.join('\n\n'));
 }
 
 async function fileParser() {
@@ -77,13 +73,13 @@ async function fileParser() {
       try {
         parsedData = JSON.parse(line);
       } catch (err) {
-        logError(` At Line Number ${lineNumber}: Invalid Json - ${err.message}`);
+        logError(`Line ${lineNumber}: Invalid JSON - ${err.message} `);
         continue;
       }
 
       const missingItem = itemsRequired.filter((field) => !(field in parsedData));
       if (missingItem.length > 0) {
-        logError(` At Line Number Line ${lineNumber}: missingItem field '${missingItem[0]}'`);
+        logError(`Line ${lineNumber}: Missing field '${missingItem[0]}'`);
         continue;
       }
 
@@ -95,7 +91,7 @@ async function fileParser() {
     }
   } finally {
     clearTimeout(timer);
-    if (!isCancelled) console.log(`File parsing has been completed. Number of valid lines: ${validLines}`);
+    if (!isCancelled) console.log(`Valid entries: ${validLines}`);
   }
 }
 
