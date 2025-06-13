@@ -58,7 +58,7 @@ async function fileParser() {
 
   const timer = setTimeout(() => {
     isCancelled = true;
-    logError('Parsing process has been  cancelled due to timeout of 10 seconds');
+    logError('Parsing aborted due to timeout');
     rl.close();
   }, 10000);
 
